@@ -1,6 +1,25 @@
 <!DOCTYPE html>
 <html lang ="pr-br">
+<canvas width="800" height="800"></canvas>
 
 <head>
 	<meta charset="UTF-8">
 	<title>Jogo da velha</title>
+
+<script>
+
+var tela = document.querySelector('canvas');
+
+function posicaoClick(evento) {
+    var x = evento.pageX - tela.offsetLeft;
+    var y = evento.pageY - tela.offsetTop;
+
+    console.log("posição do clique : " + x + " , " + y);
+
+}
+
+
+// não esqueça de mudar aqui
+tela.onclick = posicaoClick;
+
+</script>
