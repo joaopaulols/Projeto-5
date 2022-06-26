@@ -9,7 +9,7 @@
 
 </head>
 
-<body bgcolor="#FFA500">
+<body bgcolor="grey">
 	<div class="container">
 		<h2>Jogo da Velha</h2>
 		<div class="tabuleiro">
@@ -29,6 +29,28 @@
 </body>
 
 <script>
+	const campo = document.querySelectorAll(".campo");
+	const jogador_x = "X";
+	const jogador_o = "O";
+	let checarVez = true;
 
+	document.addEventListener("click", (event) =>{
+		if(event.target.matches(".campo")){
+		jogar (event.target.id);
+		}
+
+	});
+
+	function jogar(id){
+		const campo = document.getElementById(id);
+		jogadorDaVez = checarVez ? jogador_x : jogador_o;
+		campo.textContent = jogadorDaVez;
+		checarVez = !checarVez;
+		verificaVencedor(jogadorDaVez);
+	}
+
+	function verificaVencedor(jogadorDaVez){
+
+	}
 
 </script>
