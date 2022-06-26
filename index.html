@@ -48,7 +48,7 @@
 
 	document.addEventListener("click", (event) =>{
 		if(event.target.matches(".campo")){
-		jogar (event.target.id);
+		jogar(event.target.id);
 		}
 
 	});
@@ -58,7 +58,6 @@
 		jogadorDaVez = checarVez ? jogador_x : jogador_o;
 		campo.textContent = jogadorDaVez;
 		campo.classList.add(jogadorDaVez);
-		checarVez = !checarVez;
 		verificaVencedor(jogadorDaVez);
 	}
 
@@ -73,6 +72,37 @@
 			fimJogo(jogadorDaVez);
 		} else if (verificaEmpate()) {
 			fimJogo();
+		} else {
+			checarVez = !checarVez;
+		}
+	}
+
+	function verificaEmpate(){
+		let x = 0;
+		let o = 0;
+
+		for (index in campo){
+			if(!isNaN(index)){
+				if(campo[index].classList.contains(jogador_x)){
+				x++;
+			}
+
+			if(campo[index].classList.contains(jogador_o)){
+				o++;
+			}
+
+			}
+			
+		} 
+
+		return x + o == 9 ? true : false;
+	}
+
+	function fimJogo(vencedor = null){
+		if (vencedor){
+			console.log("vencedor: " + vencedor);
+		} else {
+			console.log("empatou");
 		}
 	}
 
