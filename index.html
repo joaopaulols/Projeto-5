@@ -9,7 +9,8 @@
 
 </head>
 
-<body bgcolor="grey">
+<body>
+	<div id="telaFimJogo"></div>
 	<div class="container">
 		<h2>Jogo da Velha</h2>
 		<div class="tabuleiro">
@@ -99,10 +100,19 @@
 	}
 
 	function fimJogo(vencedor = null){
+		const telaFimJogo = document.getElementById("telaFimJogo");
+		const h2 = document.createElement("h2");
+		const h3 = document.createElement("h3");
+		let menssagem = null;
+
+		telaFimJogo.style.display = "block";
+		telaFimJogo.appendChild(h2);
+		telaFimJogo.appendChild(h2);
+
 		if (vencedor){
-			console.log("vencedor: " + vencedor);
+			h2.innerHTML = 'O jogador <span>$(vencedor)</span> venceu';
 		} else {
-			console.log("empatou");
+			h2.innerHTML = "Empatou";
 		}
 	}
 
